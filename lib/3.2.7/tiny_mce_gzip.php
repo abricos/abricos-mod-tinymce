@@ -31,7 +31,7 @@
 	$cacheKey = "";
 	
 	// cmsbrick fixed
-	$cachePath .= "/../../../../temp/";
+	$cachePath .= "/../../../../cache/";
 	 
 	// Custom extra javascripts to pack
 	$custom = array(/*
