@@ -90,7 +90,7 @@ Component.entryPoint = function(){
 		 * @type Object
 		 */
 		toolbarAverage: {
-			theme_advanced_buttons1: "bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,formatselect,bullist,numlist,|,link,unlink,anchor,image,|,forecolor,backcolor,|,code"
+			theme_advanced_buttons1: "bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,formatselect,bullist,numlist,|,link,unlink,anchor,image,|,forecolor,backcolor"
 		},
 		
 		/**
@@ -101,7 +101,7 @@ Component.entryPoint = function(){
 		 * @type Object
 		 */
 		toolbarMinimal: {
-			theme_advanced_buttons1: "bold,italic,underline,strikethrough,|,bullist,numlist,|,link,unlink,image,code"
+			theme_advanced_buttons1: "bold,italic,underline,strikethrough,|,bullist,numlist,|,link,unlink,image"
 		},
 		
 		/**
