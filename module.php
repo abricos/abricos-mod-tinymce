@@ -22,7 +22,7 @@ class CMSModTinyMCE extends CMSModule {
 	 * Версия редактора TinyMCE
 	 * @var String 
 	 */
-	public $tinyMCEVersion = "3.2.3";
+	public $tinyMCEVersion = "3.3.9.2";
 
 	public function CMSModTinyMCE(){
 		$this->version = "0.1";
