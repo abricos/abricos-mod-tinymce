@@ -146,6 +146,9 @@ Component.entryPoint = function(){
 	var EditorEngine = function(owner){
 		EditorEngine.superclass.constructor.call(this, 'tinymce', owner);
 	};
+	EditorEngine.preload = function(callback){
+		API.loadTinyMCE(callback);
+	};
 	
 	YAHOO.extend(EditorEngine, Brick.widget.VisualEditor, {
 		
