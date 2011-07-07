@@ -12,10 +12,6 @@
  * Модуль текстового редактора TinyMCE.
  * 
  */
-
-$mod = new CMSModTinyMCE();
-$cms = CMSRegistry::$instance->modules->Register($mod);;
-
 class CMSModTinyMCE extends CMSModule {
 	
 	/**
@@ -42,5 +38,8 @@ class CMSModTinyMCE extends CMSModule {
 		return parent::GetContentName();
 	}
 }
+
+$mod = new CMSModTinyMCE();
+CMSRegistry::$instance->modules->Register($mod);;
 
 ?>
