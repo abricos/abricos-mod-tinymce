@@ -12,7 +12,7 @@
  * Модуль текстового редактора TinyMCE.
  * 
  */
-class CMSModTinyMCE extends CMSModule {
+class CMSModTinyMCE extends Ab_Module {
 	
 	/**
 	 * Версия редактора TinyMCE
@@ -21,7 +21,7 @@ class CMSModTinyMCE extends CMSModule {
 	public $tinyMCEVersion = "3.3.9.2";
 
 	public function CMSModTinyMCE(){
-		$this->version = "0.1";
+		$this->version = "0.1.2";
 		$this->name = "tinymce";
 		$this->takelink = "tinymce";
 	}
@@ -39,7 +39,6 @@ class CMSModTinyMCE extends CMSModule {
 	}
 }
 
-$mod = new CMSModTinyMCE();
-CMSRegistry::$instance->modules->Register($mod);;
+Abricos::ModuleRegister(new CMSModTinyMCE());
 
 ?>
