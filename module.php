@@ -12,16 +12,16 @@
  * Модуль текстового редактора TinyMCE.
  * 
  */
-class CMSModTinyMCE extends Ab_Module {
+class TinyMCEModule extends Ab_Module {
 	
 	/**
 	 * Версия редактора TinyMCE
 	 * @var String 
 	 */
-	public $tinyMCEVersion = "3.3.9.2";
+	public $tinyMCEVersion = "3.5.6";
 
-	public function CMSModTinyMCE(){
-		$this->version = "0.1.2";
+	public function TinyMCEModule(){
+		$this->version = "0.1.4";
 		$this->name = "tinymce";
 		$this->takelink = "tinymce";
 	}
@@ -39,6 +39,6 @@ class CMSModTinyMCE extends Ab_Module {
 	}
 }
 
-Abricos::ModuleRegister(new CMSModTinyMCE());
+Abricos::ModuleRegister(new TinyMCEModule());
 
 ?>

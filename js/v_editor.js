@@ -47,7 +47,7 @@ Component.entryPoint = function(){
 		base: {
 			mode : "exact", 
 			theme : "advanced", 
-			language: "ru", 
+			language: Brick.env.language, 
 			debug: false, 
 			// plugins : "paste,layer,table,insertdatetime,directionality,fullscreen,media,pagebreak,style,pagebreak,xhtmlxtras",
 			plugins : 'safari,pagebreak,style,layer,table,save,advhr,advimage,advlink,'+
@@ -65,7 +65,8 @@ Component.entryPoint = function(){
 			theme_advanced_toolbar_align: "left",
 			theme_advanced_resizing: false,
 			theme_advanced_resize_horizontal: false,
-			convert_urls: false
+			convert_urls: false,
+			gecko_spellcheck : true
 		},
 
 		/**
