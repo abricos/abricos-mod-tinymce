@@ -1,6 +1,4 @@
 /*
-@version $Id: api.js 132 2009-11-02 09:05:07Z roosit $
-@copyright Copyright (C) 2008 Abricos. All rights reserved.
 @license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.php
 */
 
@@ -100,7 +98,7 @@ Component.entryPoint = function(){
 		tinyMCE_GZ.init({
 			baseURL: '/modules/tinymce/lib/'+TINYMCE_VERSION,
 			themes : 'advanced',
-			plugins : 'safari,pagebreak,style,layer,table,save,advhr,advimage,advlink,'+
+			plugins : 'abrvideo,safari,pagebreak,style,layer,table,save,advhr,advimage,advlink,'+
 				'emotions,iespell,insertdatetime,preview,media,searchreplace,print,'+
 				'contextmenu,paste,directionality,fullscreen,noneditable,visualchars,'+
 				'nonbreaking,xhtmlxtras',

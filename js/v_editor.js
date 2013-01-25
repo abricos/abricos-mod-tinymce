@@ -1,6 +1,4 @@
 /*
-@version $Id: v_editor.js 132 2009-11-02 09:05:07Z roosit $
-@copyright Copyright (C) 2008 Abricos. All rights reserved.
 @license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.php
 */
 
@@ -18,14 +16,11 @@ Component.requires = {
 	     {name: 'sys', files: ['editor.js']}
 	]
 };
-Component.entryPoint = function(){
+Component.entryPoint = function(NS){
 	
 	var Dom = YAHOO.util.Dom,
 		E = YAHOO.util.Event,
 		L = YAHOO.lang;
-	
-	var NS = this.namespace,
-		API = NS.API;
 	
 	var Editor = Brick.widget.Editor;
 
@@ -49,8 +44,7 @@ Component.entryPoint = function(){
 			theme : "advanced", 
 			language: Brick.env.language, 
 			debug: false, 
-			// plugins : "paste,layer,table,insertdatetime,directionality,fullscreen,media,pagebreak,style,pagebreak,xhtmlxtras",
-			plugins : 'safari,pagebreak,style,layer,table,save,advhr,advimage,advlink,'+
+			plugins : 'abrvideo,inlinepopups,safari,pagebreak,style,layer,table,save,advhr,advimage,advlink,'+
 				'emotions,iespell,insertdatetime,preview,media,searchreplace,print,'+
 				'contextmenu,paste,directionality,fullscreen,noneditable,visualchars,'+
 				'nonbreaking,xhtmlxtras',
@@ -63,9 +57,12 @@ Component.entryPoint = function(){
 			paste_auto_cleanup_on_paste: true,
 			theme_advanced_toolbar_location: "top",
 			theme_advanced_toolbar_align: "left",
-			theme_advanced_resizing: false,
+			theme_advanced_resizing: true,
 			theme_advanced_resize_horizontal: false,
+			extended_valid_elements : 'object[width|height|classid|codebase|embed|param],param[name|value],embed[param|src|type|width|height|flashvars|wmode]',
+			relative_urls: false,			
 			convert_urls: false,
+			media_strict: false,
 			gecko_spellcheck : true
 		},
 
@@ -91,7 +88,8 @@ Component.entryPoint = function(){
 		 * @type Object
 		 */
 		toolbarAverage: {
-			theme_advanced_buttons1: "bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,formatselect,bullist,numlist,|,link,unlink,anchor,image,|,forecolor,backcolor"
+			theme_advanced_buttons1: "formatselect,|,bold,italic,underline,strikethrough,|,undo,redo,|,bullist,numlist,|,link,unlink,image,abrvideo",
+			theme_advanced_blockformats : "p,h3,h4,h5,h6,blockquote,code"
 		},
 		
 		/**
@@ -148,7 +146,7 @@ Component.entryPoint = function(){
 		EditorEngine.superclass.constructor.call(this, 'tinymce', owner);
 	};
 	EditorEngine.preload = function(callback){
-		API.loadTinyMCE(callback);
+		NS.API.loadTinyMCE(callback);
 	};
 	
 	YAHOO.extend(EditorEngine, Brick.widget.VisualEditor, {
@@ -157,7 +155,7 @@ Component.entryPoint = function(){
 		
 		init: function(){
 			var __self = this;
-			API.loadTinyMCE(function(){
+			NS.API.loadTinyMCE(function(){
 				var mode = __self.owner.get('mode');
 				__self.setMode(mode);
 			});
