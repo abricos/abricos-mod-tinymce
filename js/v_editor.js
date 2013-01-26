@@ -44,7 +44,7 @@ Component.entryPoint = function(NS){
 			theme : "advanced", 
 			language: Brick.env.language, 
 			debug: false, 
-			plugins : 'abrvideo,inlinepopups,safari,pagebreak,style,layer,table,save,advhr,advimage,advlink,'+
+			plugins : 'abrvideo,pagebreak,inlinepopups,safari,pagebreak,style,layer,table,save,advhr,advimage,advlink,'+
 				'emotions,iespell,insertdatetime,preview,media,searchreplace,print,'+
 				'contextmenu,paste,directionality,fullscreen,noneditable,visualchars,'+
 				'nonbreaking,xhtmlxtras',
@@ -59,7 +59,8 @@ Component.entryPoint = function(NS){
 			theme_advanced_toolbar_align: "left",
 			theme_advanced_resizing: true,
 			theme_advanced_resize_horizontal: false,
-			extended_valid_elements : 'object[width|height|classid|codebase|embed|param],param[name|value],embed[param|src|type|width|height|flashvars|wmode]',
+			extended_valid_elements: 'cut,object[width|height|classid|codebase|embed|param],param[name|value],embed[param|src|type|width|height|flashvars|wmode]',
+			pagebreak_separator: "<cut>",
 			relative_urls: false,			
 			convert_urls: false,
 			media_strict: false,
@@ -88,7 +89,7 @@ Component.entryPoint = function(NS){
 		 * @type Object
 		 */
 		toolbarAverage: {
-			theme_advanced_buttons1: "formatselect,|,bold,italic,underline,strikethrough,|,undo,redo,|,bullist,numlist,|,link,unlink,image,abrvideo",
+			theme_advanced_buttons1: "formatselect,|,bold,italic,underline,strikethrough,|,undo,redo,|,bullist,numlist,|,link,unlink,image,abrvideo,|,pagebreak",
 			theme_advanced_blockformats : "p,h3,h4,h5,h6,blockquote,code"
 		},
 		
