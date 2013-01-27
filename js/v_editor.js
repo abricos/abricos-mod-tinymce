@@ -18,9 +18,7 @@ Component.requires = {
 };
 Component.entryPoint = function(NS){
 	
-	var Dom = YAHOO.util.Dom,
-		E = YAHOO.util.Event,
-		L = YAHOO.lang;
+	var L = YAHOO.lang;
 	
 	var Editor = Brick.widget.Editor;
 
@@ -78,7 +76,7 @@ Component.entryPoint = function(NS){
 			theme_advanced_buttons1 : "bold,italic,underline,strikethrough,|,justifyleft,justifycenter,justifyright,justifyfull,|,styleselect,formatselect,fontselect,fontsizeselect",
 			theme_advanced_buttons2 : "cut,copy,paste,pastetext,pasteword,|,search,replace,|,bullist,numlist,|,outdent,indent,blockquote,|,undo,redo,|,link,unlink,anchor,image,cleanup,help,code,|,insertdate,inserttime,preview,|,forecolor,backcolor",
 			theme_advanced_buttons3 : "tablecontrols,|,hr,removeformat,visualaid,|,sub,sup,|,charmap,emotions,iespell,media,advhr,|,print,|,ltr,rtl,|,fullscreen",
-			theme_advanced_buttons4 : "insertlayer,moveforward,movebackward,absolute,|,styleprops,spellchecker,|,cite,abbr,acronym,del,ins,attribs,|,visualchars,nonbreaking,blockquote,pagebreak"
+			theme_advanced_buttons4 : "insertlayer,moveforward,movebackward,absolute,|,styleprops,spellchecker,|,cite,abbr,acronym,del,ins,attribs,|,visualchars,nonbreaking,blockquote"
 		},
 		
 		/**
@@ -89,8 +87,8 @@ Component.entryPoint = function(NS){
 		 * @type Object
 		 */
 		toolbarAverage: {
-			theme_advanced_buttons1: "formatselect,|,bold,italic,underline,strikethrough,|,undo,redo,|,bullist,numlist,|,link,unlink,image,abrvideo,|,pagebreak",
-			theme_advanced_blockformats : "p,h3,h4,h5,h6,blockquote,code"
+			theme_advanced_buttons1: "formatselect,|,bold,italic,underline,strikethrough,|,undo,redo,|,bullist,numlist,|,link,unlink,image,abrvideo",
+			theme_advanced_blockformats : "p,h3,h4,h5,h6"
 		},
 		
 		/**
@@ -101,7 +99,7 @@ Component.entryPoint = function(NS){
 		 * @type Object
 		 */
 		toolbarMinimal: {
-			theme_advanced_buttons1: "bold,italic,underline,strikethrough,|,bullist,numlist,|,link,unlink,image"
+			theme_advanced_buttons1: "bold,italic,underline,strikethrough,|,undo,redo,|,link,unlink,image,abrvideo"
 		},
 		
 		/**
@@ -115,7 +113,7 @@ Component.entryPoint = function(NS){
          * <a href="Brick.widget.Editor.html#property_TOOLBAR_MINIMAL">Editor.TOOLBAR_MINIMAL</a>.
          * @return {Object} Конфигурация редактора.
 		 */
-		getConfig: function(toolbarMode){
+		getConfig: function(toolbarMode, showBtnPageBreak){
 			var toolbar = {};
 			switch(toolbarMode){
 			case Editor.TOOLBAR_FULL:
@@ -129,6 +127,9 @@ Component.entryPoint = function(NS){
 				break;
 			}
 			var cfg = L.merge(this.base, toolbar);
+			if (showBtnPageBreak){
+				cfg['theme_advanced_buttons1'] += ',|,pagebreak';
+			}
 			return cfg;
 		}
 	};
@@ -182,8 +183,9 @@ Component.entryPoint = function(NS){
 				this.setMode(Editor.MODE_CODE);
 			}
 			var el = this.getElement();
-			var cfg = TinyMCEConfig.getConfig(toolbarMode);
-
+			var isSep = this.owner.get('separateIntro');
+			var cfg = TinyMCEConfig.getConfig(toolbarMode, isSep);
+			
 			tinyMCE.init(cfg);
 			tinyMCE.execCommand('mceAddControl', true, el.id);
 			this._isSetTinyMCE = true;
