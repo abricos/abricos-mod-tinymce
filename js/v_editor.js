@@ -7,8 +7,6 @@
  * @namespace Brick.mod.tinymce
  */
 
-var TINYMCE_VERSION = '3.3.9.2'; 
-
 var Component = new Brick.Component();
 Component.requires = {
 	mod:[
@@ -48,11 +46,13 @@ Component.entryPoint = function(NS){
 				'nonbreaking,xhtmlxtras',
 			paste_auto_cleanup_on_paste: true,
 			cleanup: true,
+			// force_br_newlines : true,				
+			forced_root_block : 'p',
+			// force_p_newlines : false, 			
 			theme_advanced_buttons1: "",
 			theme_advanced_buttons2: "", 
 			theme_advanced_buttons3: "", 
 			theme_advanced_buttons4: "",
-			paste_auto_cleanup_on_paste: true,
 			theme_advanced_toolbar_location: "top",
 			theme_advanced_toolbar_align: "left",
 			theme_advanced_resizing: true,
@@ -87,8 +87,8 @@ Component.entryPoint = function(NS){
 		 * @type Object
 		 */
 		toolbarAverage: {
-			theme_advanced_buttons1: "formatselect,|,bold,italic,underline,strikethrough,|,undo,redo,|,bullist,numlist,|,link,unlink,image,abrvideo",
-			theme_advanced_blockformats : "p,h3,h4,h5,h6"
+			theme_advanced_buttons1: "formatselect,|,bold,italic,underline,strikethrough,|,undo,redo,|,bullist,numlist,|,link,unlink,image,abrvideo,blockquote",
+			theme_advanced_blockformats : "p,h3,h4,h5,h6,blockquote,code"
 		},
 		
 		/**

@@ -7,7 +7,7 @@
  * @namespace Brick.mod.tinymce
  */
 
-var TINYMCE_VERSION = '3.5.6'; 
+var TINYMCE_VERSION = '3.5.8'; 
 
 var Component = new Brick.Component();
 Component.requires = {

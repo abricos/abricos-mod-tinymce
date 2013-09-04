@@ -1,9 +1,7 @@
 <?php 
 /**
- * @version $Id: module.php 14 2009-08-20 14:13:11Z roosit $
  * @package Abricos
  * @subpackage TinyMCE
- * @copyright Copyright (C) 2008 Abricos. All rights reserved.
  * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.php
  * @author Alexander Kuzmin (roosit@abricos.org)
  */
@@ -18,7 +16,7 @@ class TinyMCEModule extends Ab_Module {
 	 * Версия редактора TinyMCE
 	 * @var String 
 	 */
-	public $tinyMCEVersion = "3.5.6";
+	public $tinyMCEVersion = "3.5.8";
 
 	public function TinyMCEModule(){
 		$this->version = "0.1.4";
