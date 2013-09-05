@@ -43,7 +43,7 @@ Component.entryPoint = function(NS){
 			plugins : 'abrvideo,pagebreak,inlinepopups,safari,pagebreak,style,layer,table,save,advhr,advimage,advlink,'+
 				'emotions,iespell,insertdatetime,preview,media,searchreplace,print,'+
 				'contextmenu,paste,directionality,fullscreen,noneditable,visualchars,'+
-				'nonbreaking,xhtmlxtras',
+				'nonbreaking,xhtmlxtras,prettify',
 			paste_auto_cleanup_on_paste: true,
 			cleanup: true,
 			// force_br_newlines : true,				
@@ -88,7 +88,7 @@ Component.entryPoint = function(NS){
 		 * @type Object
 		 */
 		toolbarAverage: {
-			theme_advanced_buttons1: "formatselect,|,bold,italic,underline,strikethrough,|,undo,redo,|,bullist,numlist,|,link,unlink,image,abrvideo,blockquote",
+			theme_advanced_buttons1: "formatselect,|,bold,italic,underline,strikethrough,|,undo,redo,|,bullist,numlist,|,link,unlink,image,abrvideo,blockquote,prettify",
 			theme_advanced_blockformats : "p,h3,h4,h5,h6,blockquote,code"
 		},
 		
