@@ -3,7 +3,7 @@
  * @package Abricos
  * @subpackage TinyMCE
  * @license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.php
- * @author Alexander Kuzmin (roosit@abricos.org)
+ * @author Alexander Kuzmin <roosit@abricos.org>
  */
 
 /**
@@ -19,7 +19,7 @@ class TinyMCEModule extends Ab_Module {
 	public $tinyMCEVersion = "3.5.8";
 
 	public function TinyMCEModule(){
-		$this->version = "0.1.4";
+		$this->version = "0.1.5";
 		$this->name = "tinymce";
 		$this->takelink = "tinymce";
 	}
