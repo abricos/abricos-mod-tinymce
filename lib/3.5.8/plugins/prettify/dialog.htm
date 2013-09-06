@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>{#prettify_dlg.title}</title>
+	<script type="text/javascript" src="../../tiny_mce_popup.js"></script>
+	<script type="text/javascript" src="js/dialog.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/prettify.css" />
+</head>
+<body>
+<form onsubmit="prettifyDialog.insert(); return false;" action="#">
+	<fieldset id="prettify_options">
+		<legend>{#prettify_dlg.highlight_options}</legend>
+		<input type="checkbox" name="prettify_linenums" id="prettify_linenums" value="1" /><label for="prettify_linenums">{#prettify_dlg.linenums}</label><br />
+		<label for="prettify_language">{#prettify_dlg.choose_lang}:</label>
+		<select name="prettify_language" id="prettify_language">
+			<option value="">Default</option>
+			<option value="html">HTML</option>
+			<option value="apollo">Apollo</option>
+			<option value="basic">Basic</option>
+			<option value="clj">Clojure</option>
+			<option value="css">CSS</option>
+			<option value="dart">Dart</option>
+			<option value="erlang">Erlang</option>
+			<option value="go">Go</option>
+			<option value="hs">Haskell</option>
+			<option value="lisp">Lisp</option>
+			<option value="llvm">LLVM</option>
+			<option value="lua">Lua</option>
+			<option value="matlab">MATLAB</option>
+			<option value="fs">OCaml, SML, F#</option>
+			<option value="mumps">MUMPS</option>
+			<option value="nemerle">Nemerle</option>
+			<option value="pascal">Pascal</option>
+			<option value="proto">Protocol Buffers</option>
+			<option value="r">S, S-plus, R</option>
+			<option value="scala">Scala</option>
+			<option value="sql">SQL</option>
+			<option value="tcl">TCL</option>
+			<option value="latex">Latex</option>
+			<option value="vb">Visual Basic</option>
+			<option value="vhdl">VHDL</option>
+			<option value="wiki.meta">Wiki</option>
+			<option value="xq">XQuery</option>
+			<option value="yaml">YAML</option>
+		</select>
+	</fieldset>
+	<fieldset>
+		<legend>{#prettify_dlg.paste}</legend>
+	<textarea name="prettify_code" id="prettify_code" rows="15" cols="100" class="mceFocus"></textarea>
+	</fieldset>
+	<div class="mceActionPanel">
+		<div style="float: left">
+			<input type="submit" id="insert" name="insert" value="{#insert}" />
+		</div>
+		<div style="float: right">
+			<input type="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
+		</div>
+	</div>
+</form>
+</body>
+</html>
