@@ -25,7 +25,7 @@ class TinyMCEModule extends Ab_Module {
 	}
 	
 	public function GetContentName(){
-		$adress = $this->registry->adress;
+		$adress = Abricos::$adress;
 		
 		// разрешить страницу для разработчика модуля
 		if ($adress->level >= 2 && 
