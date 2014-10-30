@@ -30,7 +30,7 @@ class TinyMCEModule extends Ab_Module {
 		// разрешить страницу для разработчика модуля
 		if ($adress->level >= 2 && 
 			$adress->dir[1] == 'develop' &&
-			CMSRegistry::$instance->config['Misc']['develop_mode']){
+			Abricos::$config['Misc']['develop_mode']){
 			return 'develop';
 		}
 		return parent::GetContentName();
