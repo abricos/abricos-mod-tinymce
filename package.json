@@ -1,0 +1,24 @@
+{
+  "name": "abricos-mod-tinymce",
+  "description": "TinyMCE Module for Abricos Platform",
+  "version": "0.1.7",
+  "author": {
+    "name": "Alexander Kuzmin",
+    "email": "roosit@abricos.org",
+    "web": "http://abricos.org",
+    "twitter": "roositab"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/abricos/abricos-mod-tinymce.git"
+  },
+  "keywords": [
+    "abricos",
+    "tinymce"
+  ],
+  "bugs": {
+    "url": "https://github.com/abricos/abricos-mod-tinymce/issues"
+  },
+  "homepage": "http://abricos.org/mods/tinymce/"
+}
