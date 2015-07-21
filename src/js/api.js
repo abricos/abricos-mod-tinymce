@@ -1,7 +1,3 @@
-/*
-@license http://www.gnu.org/copyleft/gpl.html GNU/GPL, see LICENSE.php
-*/
-
 /**
  * @module TinyMCE
  * @namespace Brick.mod.tinymce
