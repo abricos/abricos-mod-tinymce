@@ -31,12 +31,12 @@ Component.entryPoint = function(NS){
         MODE_CODE = SYS.Editor.MODE_CODE,
         MODE_VISUAL = SYS.Editor.MODE_VISUAL;
 
-
+    // TODO: pagebreak config
     NS.OPTIONS = {
         language: language,
         theme: 'modern',
         plugins: 'hr link image paste print preview anchor pagebreak ' +
-        'searchreplace visualblocks visualchars code fullscreen media ' +
+        'searchreplace visualblocks visualchars fullscreen media ' +
         'nonbreaking table ' +
         'emoticons textcolor',
         relative_urls: false,
@@ -49,7 +49,8 @@ Component.entryPoint = function(NS){
     };
 
     NS.TOOLBAR_FULL = {
-        toolbar1: 'undo redo | cut copy paste | bullist numlist | filemanager image link unlink media anchor nonbreaking table emoticons hr pagebreak ',
+        toolbar1: 'undo redo | cut copy paste | bullist numlist | ' +
+        'filemanager image link unlink media anchor nonbreaking table emoticons hr ',
 
         toolbar2: 'bold italic underline strikethrough | ' +
         'alignleft aligncenter alignright alignjustify | ' +
@@ -57,19 +58,19 @@ Component.entryPoint = function(NS){
         'subscript superscript blockquote | ' +
         'styleselect formatselect fontselect fontsizeselect | removeformat',
 
-        toolbar3: 'searchreplace preview print visualblocks code fullscreen codemode'
+        toolbar3: 'searchreplace preview print visualblocks fullscreen codemode'
     };
 
     NS.TOOLBAR_STANDART = {
-        toolbar1: 'undo redo | cut copy paste | bullist numlist | filemanager image link unlink media anchor nonbreaking table emoticons hr pagebreak ',
+        toolbar1: 'undo redo | cut copy paste | bullist numlist | ' +
+        'filemanager image link unlink media nonbreaking table emoticons hr | ' +
+        'searchreplace preview print fullscreen codemode',
 
         toolbar2: 'bold italic underline strikethrough | ' +
         'alignleft aligncenter alignright alignjustify | ' +
         'forecolor backcolor | ' +
-        'subscript superscript blockquote | ' +
-        'styleselect formatselect fontselect fontsizeselect | removeformat',
+        'styleselect formatselect fontselect fontsizeselect | removeformat'
 
-        toolbar3: 'searchreplace preview print visualblocks code fullscreen codemode'
     };
 
     NS.TOOLBAR_MINIMAL = {
@@ -115,8 +116,6 @@ Component.entryPoint = function(NS){
                     }
                 );
 
-            Y.one(srcNode).set('value', 'asdfasdfsdf');
-
             Brick.use('{C#MODNAME}', 'plugins', function(){
                 tinymce.init(options);
             }, this);
@@ -158,9 +157,22 @@ Component.entryPoint = function(NS){
     }, {
         ATTRS: {
             content: {
-                getter: function(){
+                lazyAdd: false,
+                value: '',
+                getter: function(val){
                     var mce = this._mceInstance;
-                    return mce ? mce.getContent() : Y.one(this.get('srcNode')).get('value');
+                    if (!mce){
+                        return val;
+                    }
+                    return mce.getContent();
+                },
+                setter: function(val){
+                    var mce = this._mceInstance;
+                    if (!mce){
+                        return val;
+                    }
+                    mce.setContent(val);
+                    return val;
                 }
             },
             mode: {
