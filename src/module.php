@@ -20,7 +20,7 @@ class TinyMCEModule extends Ab_Module {
     public $tinyMCEVersion = "3.5.8";
 
     public function TinyMCEModule(){
-        $this->version = "0.1.6";
+        $this->version = "0.1.7";
         $this->name = "tinymce";
     }
 }
