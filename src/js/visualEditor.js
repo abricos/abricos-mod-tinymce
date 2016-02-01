@@ -1,4 +1,4 @@
-var TINYMCE_VERSION = '4.2.5';
+var TINYMCE_VERSION = '4.3.3';
 
 var Component = new Brick.Component();
 Component.requires = {
@@ -145,6 +145,16 @@ Component.entryPoint = function(NS){
 
             var callback = this.get('initCallback');
             callback ? callback.call((this.get('initContext') || null), this) : null;
+
+            // hack for change visual mode
+            var mode = this.get('mode');
+            setTimeout(function(){
+                if (mode === MODE_CODE){
+                    editor.hide();
+                } else {
+                    editor.show();
+                }
+            }, 500);
         },
         destructor: function(){
             var mce = this._mceInstance;
@@ -161,10 +171,14 @@ Component.entryPoint = function(NS){
                 value: '',
                 getter: function(val){
                     var mce = this._mceInstance;
-                    if (!mce){
-                        return val;
+                    if (mce){
+                        val = mce.getContent();
                     }
-                    return mce.getContent();
+
+                    if (mce.isHidden){
+                        val = this.get('srcNode').value;
+                    }
+                    return val;
                 },
                 setter: function(val){
                     var mce = this._mceInstance;
@@ -181,8 +195,8 @@ Component.entryPoint = function(NS){
                     if (!mce){
                         return val;
                     }
-
-                    return mce.isHidden() ? SYS.Editor.MODE_CODE : SYS.Editor.MODE_VISUAL;
+                    val = mce.isHidden() ? SYS.Editor.MODE_CODE : SYS.Editor.MODE_VISUAL;
+                    return val;
                 },
                 setter: function(val){
                     var mce = this._mceInstance;
