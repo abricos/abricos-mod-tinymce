@@ -178,7 +178,7 @@ Component.entryPoint = function(NS){
                         val = mce.getContent();
                     }
 
-                    if (mce.isHidden){
+                    if (mce.hidden){
                         val = this.get('srcNode').value;
                     }
                     return val;
