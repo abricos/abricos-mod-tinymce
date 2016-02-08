@@ -164,6 +164,9 @@ Component.entryPoint = function(NS){
                 this._mceInstance = null;
             }
         },
+        insertValue: function(value){
+            this._mceInstance.execCommand('mceInsertContent', false, value);
+        }
     }, {
         ATTRS: {
             content: {
