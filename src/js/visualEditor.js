@@ -45,7 +45,9 @@ Component.entryPoint = function(NS){
         menubar: false,
         pagebreak_separator: '<cut>',
         visual: false,
-        statusbar: false
+        statusbar: false,
+        allow_script_urls: true,
+        extended_valid_elements:'script[language|type|src|charset]'
     };
 
     NS.TOOLBAR_FULL = {
