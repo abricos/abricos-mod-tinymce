@@ -96,7 +96,7 @@ Component.entryPoint = function(NS){
             var toolbar = {};
             switch (this.get('toolbar')) {
                 case SYS.Editor.TOOLBAR_FULL:
-                    toolbar = NS.TOOLBAR_MINIMAL;
+                    toolbar = NS.TOOLBAR_FULL;
                     break;
                 case SYS.Editor.TOOLBAR_STANDART:
                     toolbar = NS.TOOLBAR_STANDART;
