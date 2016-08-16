@@ -19,12 +19,10 @@ class TinyMCEModule extends Ab_Module {
      */
     public $tinyMCEVersion = "3.5.8";
 
-    public function TinyMCEModule(){
+    public function __construct(){
         $this->version = "0.1.7";
         $this->name = "tinymce";
     }
 }
 
 Abricos::ModuleRegister(new TinyMCEModule());
-
-?>
